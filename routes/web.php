@@ -14,13 +14,14 @@ Route::get('home', function () {
     $monitors = Monitor::all();
     return Inertia::render('Home', [
         'monitors' => $monitors,
-    ]);
+
+    ])->withViewData(['title' => 'Inertia Js',]);
 });
 
 Route::get('about', function () {
-    return Inertia::render('About');
+    return Inertia::render('About')->withViewData(['title' => 'About Js',]);
 });
 
 Route::get('login', function () {
-    return Inertia::render('Login');
+    return Inertia::render('Login')->withViewData(['title' => 'Login Js',]);
 });

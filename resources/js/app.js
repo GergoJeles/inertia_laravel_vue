@@ -3,8 +3,11 @@ import { createInertiaApp } from "@inertiajs/vue3";
 import Layout from "@/components/Layout.vue";
 
 createInertiaApp({
+    title: (title) => (title == "" ? "Inertia JS" : title),
     resolve: (name) => {
-        const pages = import.meta.glob("./Pages/**/*.vue", { eager: true });
+        const pages = import.meta.glob("./Pages/**/*.vue", {
+            eager: true,
+        });
         const page = pages[`./Pages/${name}.vue`];
         page.default.layout = page.default.layout ?? Layout;
         return page;
