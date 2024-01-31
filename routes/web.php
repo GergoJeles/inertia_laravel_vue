@@ -25,3 +25,7 @@ Route::get('about', function () {
 Route::get('login', function () {
     return Inertia::render('Login')->withViewData(['title' => 'Login Js',]);
 });
+
+Route::get('site/create', function () {
+    return Inertia::render('Site/Create')->withViewData(['title' => 'Create Js',]);
+});
