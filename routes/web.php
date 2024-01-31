@@ -32,5 +32,10 @@ Route::get('site/create', function () {
 });
 
 Route::post('/auth/login', function (Request $request) {
+
+    $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required'],
+    ]);
     return Inertia::location('/home');
 });
