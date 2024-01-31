@@ -54,7 +54,7 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         <!-- Dynamic rows start here -->
-                        <tr v-for="monitor in monitors" :key="monitor.id">
+                        <tr v-for="monitor in monitors.data" :key="monitor.id">
                             <td
                                 class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
                             >
@@ -91,10 +91,18 @@
             </div>
         </div>
     </div>
+    <Paginate
+        :next="monitors.next_page_url"
+        :prev="monitors.prev_page_url"
+        :currentPage="monitors.current_page"
+        :lastPage="monitors.last_page"
+        class="mt-4"
+    />
 </template>
 
 <script setup>
 import { router } from "@inertiajs/vue3";
+import Paginate from "@/components/Paginate.vue";
 defineProps(["monitors"]);
 
 function createSite() {
