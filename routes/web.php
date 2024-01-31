@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\Monitor;
+use Illuminate\Http\Request;
 
 
 
@@ -28,4 +29,8 @@ Route::get('login', function () {
 
 Route::get('site/create', function () {
     return Inertia::render('Site/Create')->withViewData(['title' => 'Create Js',]);
+});
+
+Route::post('/auth/login', function (Request $request) {
+    return Inertia::location('/home');
 });
